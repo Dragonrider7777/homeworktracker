@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-page);
+  font-family: "Courier New", Courier, monospace;
+  color: var(--color-text);
+  margin: 0;
+  padding: 24px;
+}

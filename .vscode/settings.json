@@ -1,0 +1,35 @@
+{
+  // ---------- EDITOR ----------
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+
+  // ---------- JAVASCRIPT / HTML / CSS ----------
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ---------- JAVA ----------
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+
+  // ---------- CLEAN CODE ----------
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+
+  // ---------- NAVIGATION ----------
+  "breadcrumbs.enabled": true,
+
+  // ---------- UI ----------
+  "workbench.startupEditor": "none",
+  "explorer.compactFolders": true,
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive"
+}

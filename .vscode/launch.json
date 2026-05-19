@@ -1,0 +1,32 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot App (Opens Browser Automatically)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.homeworktracker.HomeworkTrackerApplication",
+      "projectName": "homeworktracker",
+      "args": "",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "preLaunchTask": "maven: clean install",
+      "serverReadyAction": {
+        "pattern": "Tomcat started on port",
+        "uriFormat": "http://localhost:8080",
+        "action": "openExternally"
+      }
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Open Browser (Backup)",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

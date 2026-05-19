@@ -1,0 +1,73 @@
+button {
+  font: inherit;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.filter-btn {
+  background: white;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.filter-btn:hover {
+  background: #f8fbff;
+}
+
+.filter-btn.active-filter {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: var(--color-primary-border);
+  font-weight: 700;
+}
+
+.assignment-btn {
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.assignment-btn:hover {
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+  border-color: var(--color-danger-border);
+}
+
+.delete-btn:hover {
+  background: var(--color-danger-hover);
+}
+
+.primary-btn {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-soft);
+}
+
+.primary-btn:hover {
+  background: var(--color-primary-hover);
+}
