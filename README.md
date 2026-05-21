@@ -33,3 +33,10 @@ mvn spring-boot:run
 ```
 
 4. Open: http://localhost:8080
+
+## Notes
+
+- Assignments are persisted to `data/assignments.json` in the application working directory.
+- The home page is available at `/` and the classes page is available at `/classes`.
+- Static assets are served from `src/main/resources/static`.
+- The app now uses a single page shell at `/` with client-side destination switching for Home and Classes.

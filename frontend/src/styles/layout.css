@@ -1,0 +1,38 @@
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: 22px;
+  box-shadow: var(--shadow-app);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+#page-header {
+  background: linear-gradient(135deg, #dfeaf6, #cfdceb);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+#page-header h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+#list-summary {
+  min-height: 20px;
+  margin: 0 2px 10px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
