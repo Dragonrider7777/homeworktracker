@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AssignmentForm({ onAssignmentAdded }) {
+function AssignmentForm({ onAssignmentAdded, showToast }) {
   const [title, setTitle] = useState("");
   const [course, setCourse] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -31,39 +31,53 @@ function AssignmentForm({ onAssignmentAdded }) {
       setSource("");
 
       onAssignmentAdded();
+      if (typeof showToast === "function") {
+        showToast("Assignment added", "success");
+      }
     } else {
       alert("Failed to add assignment. Please try again.");
     }
   }
 
   return (
-    <form id="assignment-form" onSubmit={handleSubmit}>
-      <h2>Add Assignment</h2>
+    <form id="add-assignment" onSubmit={handleSubmit}>
+      <div className="section-header">
+        <h2>Add Assignment</h2>
+        <p>Create a new task with an optional due date and source.</p>
+      </div>
+      <label>Title</label>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
         required
-      ></input>
+      />
+      <label>Course</label>
       <input
         value={course}
         onChange={(e) => setCourse(e.target.value)}
         placeholder="Course"
         required
-      ></input>
+      />
+      <label>Due Date</label>
       <input
         value={dueDate}
         onChange={(e) => setDueDate(e.target.value)}
         placeholder="Due Date"
         type="date"
-      ></input>
+      />
+      <label>Source</label>
       <input
         value={source}
         onChange={(e) => setSource(e.target.value)}
         placeholder="Source"
         required
-      ></input>
-      <button type="submit">Add</button>
+      />
+      <div className="form-actions">
+        <button className="primary-btn" type="submit">
+          Add
+        </button>
+      </div>
     </form>
   );
 }
