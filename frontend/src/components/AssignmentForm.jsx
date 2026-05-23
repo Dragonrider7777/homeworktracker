@@ -1,6 +1,7 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
-function AssignmentForm({ onAssignmentAdded, showToast }) {
+function AssignmentForm({ onAssignmentAdded }) {
   const [title, setTitle] = useState("");
   const [course, setCourse] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -31,11 +32,9 @@ function AssignmentForm({ onAssignmentAdded, showToast }) {
       setSource("");
 
       onAssignmentAdded();
-      if (typeof showToast === "function") {
-        showToast("Assignment added", "success");
-      }
+      toast.success("Assignment added");
     } else {
-      alert("Failed to add assignment. Please try again.");
+      toast.error("Failed to add assignment. Please try again.");
     }
   }
 

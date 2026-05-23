@@ -1,21 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { FaCheck, FaTrash, FaUndo } from "react-icons/fa";
 import AssignmentCard from "./components/AssignmentCard";
 import AssignmentForm from "./components/AssignmentForm";
 import FilterBar from "./components/FilterBar";
-import Toast from "./components/Toast";
 
 function App() {
   const [assignments, setAssignments] = useState([]);
   const [currentFilter, setCurrentFilter] = useState("active");
-  const [toasts, setToasts] = useState([]);
-
-  function showToast(message, type = "success", duration = 3000) {
-    const id = Date.now() + Math.random();
-    setToasts((t) => [...t, { id, message, type }]);
-    setTimeout(() => {
-      setToasts((t) => t.filter((x) => x.id !== id));
-    }, duration);
-  }
 
   const loadAssignments = useCallback(async () => {
     try {
@@ -57,28 +49,28 @@ function App() {
   async function markDone(id) {
     await fetch(`/api/assignments/${id}/done`, { method: "PATCH" });
     loadAssignments();
-    showToast(
-      'Assignment completed <i class="fa-solid fa-circle-check"></i>',
-      "success"
-    );
+    toast("Assignment completed", {
+      icon: <FaCheck />,
+      className: "toast-success"
+    });
   }
 
   async function markTodo(id) {
     await fetch(`/api/assignments/${id}/todo`, { method: "PATCH" });
     loadAssignments();
-    showToast(
-      'Assignment restored <i class="fa-solid fa-undo"></i>',
-      "warning"
-    );
+    toast("Assignment restored", {
+      icon: <FaUndo />,
+      className: "toast-warning"
+    });
   }
 
   async function deleteAssignment(id) {
     await fetch(`/api/assignments/${id}`, { method: "DELETE" });
     loadAssignments();
-    showToast(
-      'Assignment deleted <i class="fa-solid fa-trash"></i>',
-      "warning"
-    );
+    toast.error("Assignment deleted", {
+      icon: <FaTrash />,
+      className: "toast-error"
+    });
   }
 
   return (
@@ -110,16 +102,7 @@ function App() {
           ))
         )}
       </ul>
-      <AssignmentForm
-        onAssignmentAdded={loadAssignments}
-        showToast={showToast}
-      />
-
-      <div id="toast-container">
-        {toasts.map((t) => (
-          <Toast key={t.id} message={t.message} type={t.type} />
-        ))}
-      </div>
+      <AssignmentForm onAssignmentAdded={loadAssignments} />
     </div>
   );
 }
