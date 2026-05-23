@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AssignmentCard from "./components/AssignmentCard";
 import AssignmentForm from "./components/AssignmentForm";
 import FilterBar from "./components/FilterBar";
@@ -17,21 +17,23 @@ function App() {
     }, duration);
   }
 
-  async function loadAssignments() {
-    const res = await fetch("/api/assignments");
-    const data = await res.json();
-    setAssignments(data);
-  }
-
-  useEffect(() => {
-    async function initializeAssignments() {
+  const loadAssignments = useCallback(async () => {
+    try {
       const res = await fetch("/api/assignments");
       const data = await res.json();
       setAssignments(data);
+    } catch (e) {
+      if (e.name === "AbortError") return;
+      console.error("Failed to load assignments:", e);
     }
-
-    initializeAssignments();
   }, []);
+
+  useEffect(() => {
+    // call stable loadAssignments; include it in deps to satisfy lint rules
+    // This effect intentionally calls setState via `loadAssignments` on mount
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadAssignments();
+  }, [loadAssignments]);
 
   function matchesFilter(assignment) {
     switch (currentFilter) {
@@ -55,18 +57,28 @@ function App() {
   async function markDone(id) {
     await fetch(`/api/assignments/${id}/done`, { method: "PATCH" });
     loadAssignments();
-    showToast("Assignment marked as done!", "success");
+    showToast(
+      'Assignment completed <i class="fa-solid fa-circle-check"></i>',
+      "success"
+    );
   }
 
   async function markTodo(id) {
     await fetch(`/api/assignments/${id}/todo`, { method: "PATCH" });
     loadAssignments();
+    showToast(
+      'Assignment restored <i class="fa-solid fa-undo"></i>',
+      "warning"
+    );
   }
 
   async function deleteAssignment(id) {
     await fetch(`/api/assignments/${id}`, { method: "DELETE" });
     loadAssignments();
-    showToast("Assignment deleted", "warning");
+    showToast(
+      'Assignment deleted <i class="fa-solid fa-trash"></i>',
+      "warning"
+    );
   }
 
   return (

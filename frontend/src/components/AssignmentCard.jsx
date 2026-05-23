@@ -26,7 +26,7 @@ function AssignmentCard({ assignment, onMarkDone, onMarkTodo, onDelete }) {
   const stateClass = getStateClass();
 
   return (
-    <li className={stateClass} className="assignment-card">
+    <li className={`assignment-card ${stateClass}`}>
       <div className="assignment-content">
         <div className="assignment-title assignment-strikethrough">
           {assignment.title}

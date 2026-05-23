@@ -10,6 +10,7 @@ import "./styles/navbar.css";
 import "./styles/responsive.css";
 import "./styles/toasts.css";
 import "./styles/variables.css";
+import "./vendor/fontawesome/css/all.min.css";
 
 import App from "./App.jsx";
 
