@@ -3,11 +3,14 @@ import toast from "react-hot-toast";
 import { FaCheck, FaTrash, FaUndo } from "react-icons/fa";
 import AssignmentCard from "./components/AssignmentCard";
 import AssignmentForm from "./components/AssignmentForm";
+import EmptyState from "./components/EmptyState";
 import FilterBar from "./components/FilterBar";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [assignments, setAssignments] = useState([]);
   const [currentFilter, setCurrentFilter] = useState("active");
+  const [editingAssignment, setEditingAssignment] = useState(null);
 
   const loadAssignments = useCallback(async () => {
     try {
@@ -74,36 +77,47 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div id="page-header">
-        <h1>Homework Assignment Tracker</h1>
-        <p className="subtitle">
-          Track what is due, what is urgent, and what is finished.
-        </p>
-      </div>
+    <>
+      <Sidebar />
 
-      <FilterBar
-        currentFilter={currentFilter}
-        setCurrentFilter={setCurrentFilter}
-      />
+      <main className="app-main">
+        <div className="container">
+          <div id="page-header">
+            <h1>Homework Assignment Tracker</h1>
+            <p className="subtitle">
+              Track what is due, what is urgent, and what is finished.
+            </p>
+          </div>
 
-      <ul id="list">
-        {filteredAssignments.length === 0 ? (
-          <li>No assignments found.</li>
-        ) : (
-          filteredAssignments.map((assignment) => (
-            <AssignmentCard
-              key={assignment.id}
-              assignment={assignment}
-              onMarkDone={markDone}
-              onMarkTodo={markTodo}
-              onDelete={deleteAssignment}
-            />
-          ))
-        )}
-      </ul>
-      <AssignmentForm onAssignmentAdded={loadAssignments} />
-    </div>
+          <FilterBar
+            currentFilter={currentFilter}
+            setCurrentFilter={setCurrentFilter}
+          />
+
+          <ul id="list">
+            {filteredAssignments.length === 0 ? (
+              <EmptyState filter={currentFilter} />
+            ) : (
+              filteredAssignments.map((assignment) => (
+                <AssignmentCard
+                  key={assignment.id}
+                  assignment={assignment}
+                  onMarkDone={markDone}
+                  onMarkTodo={markTodo}
+                  onDelete={deleteAssignment}
+                  onEdit={setEditingAssignment}
+                />
+              ))
+            )}
+          </ul>
+          <AssignmentForm
+            onAssignmentAdded={loadAssignments}
+            editingAssignment={editingAssignment}
+            setEditingAssignment={setEditingAssignment}
+          />
+        </div>
+      </main>
+    </>
   );
 }
 

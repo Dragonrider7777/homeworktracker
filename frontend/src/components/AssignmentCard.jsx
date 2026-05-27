@@ -1,4 +1,10 @@
-function AssignmentCard({ assignment, onMarkDone, onMarkTodo, onDelete }) {
+function AssignmentCard({
+  assignment,
+  onMarkDone,
+  onMarkTodo,
+  onDelete,
+  onEdit
+}) {
   function getStateClass() {
     if (assignment.completed) return "completed";
     if (assignment.status === "OVERDUE") return "overdue";
@@ -53,7 +59,9 @@ function AssignmentCard({ assignment, onMarkDone, onMarkTodo, onDelete }) {
           {assignment.completed ? "Undo" : "Done"}
         </button>
 
-        <button className="assignment-btn">Edit</button>
+        <button className="assignment-btn" onClick={() => onEdit(assignment)}>
+          Edit
+        </button>
 
         <button
           className="assignment-btn delete-btn"
