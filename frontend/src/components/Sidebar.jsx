@@ -1,25 +1,26 @@
 import { FaCalendarAlt, FaChartBar, FaCog, FaHome } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <div class="sidebar-container">
+      <div className="sidebar-container">
         <nav className="sidebar-nav">
-          <a className="sidebar-link active" href="#">
+          <NavLink to="/" className="sidebar-link">
             <FaHome /> Assignments
-          </a>
+          </NavLink>
 
-          <a className="sidebar-link" href="#">
+          <NavLink to="/calendar" className="sidebar-link">
             <FaCalendarAlt /> Calendar
-          </a>
+          </NavLink>
 
-          <a className="sidebar-link" href="#">
+          <NavLink to="/stats" className="sidebar-link">
             <FaChartBar /> Stats
-          </a>
+          </NavLink>
 
-          <a className="sidebar-link" href="#">
+          <NavLink to="/settings" className="sidebar-link">
             <FaCog /> Settings
-          </a>
+          </NavLink>
         </nav>
       </div>
     </aside>
