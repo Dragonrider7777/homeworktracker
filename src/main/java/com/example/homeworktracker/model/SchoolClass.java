@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class SchoolClass {
   private String id;
-  private String className;
+  private String name;
   private String teacherName;
 
   // Constructor no parameters for JSON deserialization
@@ -13,9 +13,9 @@ public class SchoolClass {
   }
 
   // Constructor with parameters
-  public SchoolClass(String className, String teacherName) {
+  public SchoolClass(String name, String teacherName) {
     this.id = UUID.randomUUID().toString();
-    this.className = className;
+    this.name = name;
     this.teacherName = teacherName;
   }
 
@@ -28,12 +28,12 @@ public class SchoolClass {
     this.id = id;
   }
 
-  public String getClassName() {
-    return className;
+  public String getName() {
+    return name;
   }
 
-  public void setClassName(String className) {
-    this.className = className;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getTeacherName() {

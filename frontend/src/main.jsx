@@ -9,6 +9,7 @@ import "./styles/calendar.css";
 import "./styles/forms.css";
 import "./styles/layout.css";
 import "./styles/responsive.css";
+import "./styles/settings.css";
 import "./styles/toasts.css";
 import "./styles/variables.css";
 

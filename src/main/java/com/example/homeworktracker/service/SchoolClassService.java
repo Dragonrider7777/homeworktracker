@@ -23,9 +23,10 @@ public class SchoolClassService {
     this.schoolClasses.addAll(schoolClassStorage.loadSchoolClasses());
   }
 
-  // Getter method that retreives all currently enrolled classes
+  // Getter method that retrieves all currently enrolled classes
   public List<SchoolClass> getAllSchoolClasses() {
-    return schoolClasses.stream().toList();
+    return schoolClasses.stream().sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName()))
+        .toList();
   }
 
   /*
@@ -65,7 +66,7 @@ public class SchoolClassService {
 
     validateSchoolClass(updated);
 
-    existing.setClassName(updated.getClassName());
+    existing.setName(updated.getName());
     existing.setTeacherName(updated.getTeacherName());
 
     schoolClassStorage.saveSchoolClasses(schoolClasses);
@@ -80,8 +81,8 @@ public class SchoolClassService {
    * Method to validate a schoolClass object. It checks if the schoolClass has a valid class name
    * and teacher's name.
    */
-  public void validateSchoolClass(SchoolClass schoolClass) {
-    if (schoolClass.getClassName() == null || schoolClass.getClassName().isBlank()) {
+  private void validateSchoolClass(SchoolClass schoolClass) {
+    if (schoolClass.getName() == null || schoolClass.getName().isBlank()) {
       throw new IllegalArgumentException("Class name is required");
     }
     if (schoolClass.getTeacherName() == null || schoolClass.getTeacherName().isBlank()) {

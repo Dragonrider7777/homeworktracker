@@ -39,7 +39,7 @@ button:hover {
   font-weight: 700;
 }
 
-.assignment-btn {
+.card-btn {
   padding: 8px 12px;
   background: #f8fafc;
   border-radius: 8px;
@@ -48,7 +48,7 @@ button:hover {
   font-weight: 600;
 }
 
-.assignment-btn:hover {
+.card-btn:hover {
   transform: translateY(-1px);
 }
 

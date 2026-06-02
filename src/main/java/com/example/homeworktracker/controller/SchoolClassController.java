@@ -34,7 +34,7 @@ public class SchoolClassController {
   }
 
   @DeleteMapping("/{id}")
-  public boolean deleteAssignment(@PathVariable String id) {
+  public boolean deleteSchoolClass(@PathVariable String id) {
     return schoolClassService.deleteSchoolClass(id);
   }
 

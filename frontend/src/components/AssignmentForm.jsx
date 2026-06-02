@@ -13,9 +13,12 @@ function AssignmentForm({
     source: ""
   });
 
+  // Handle form submission for both adding and editing assignments
   async function handleSubmit(e) {
+    // Prevent default form submission behavior
     e.preventDefault();
 
+    // Construct the assignment object to send to the backend
     const assignment = {
       title: formData.title,
       course: formData.course,
@@ -23,20 +26,29 @@ function AssignmentForm({
       source: formData.source || "MANUAL"
     };
 
+    /* Determine the API endpoint and HTTP method based on whether we're editing or adding
+        - If editing, we send a PUT request to /api/assignments/:id
+        - If adding, we send a POST request to /api/assignments
+
+    Since the backend API is designed to handle both creation and updates, we can use the same form for both actions. The presence of an editingAssignment prop indicates whether we're in edit mode or add mode, allowing us to adjust our API call accordingly.
+    */
     const url = editingAssignment
       ? `/api/assignments/${editingAssignment.id}`
       : "/api/assignments";
 
+    // Use PUT for editing and POST for adding
     const method = editingAssignment ? "PUT" : "POST";
 
+    // Make the API call to save the assignment
     const response = await fetch(url, {
-      method,
+      method, // Set the appropriate headers and body for the request
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(assignment)
     });
 
+    // Handle the response from the backend
     if (response.ok) {
       setFormData({
         title: "",
@@ -44,10 +56,11 @@ function AssignmentForm({
         dueDate: "",
         source: ""
       });
-      setEditingAssignment(null);
+      setEditingAssignment(null); // Clear the editing state after saving
 
-      onAssignmentAdded();
+      onAssignmentAdded(); // Notify the parent component to refresh the assignment list
     } else {
+      // Log an error if the save operation failed
       console.error("Failed to save assignment:", await response.text());
     }
   }

@@ -1,8 +1,12 @@
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\controller\AssignmentController.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\controller\PageController.java
+C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\controller\SchoolClassController.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\HomeworkTrackerApplication.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\model\Assignment.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\model\AssignmentStatus.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\model\Priority.java
+C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\model\SchoolClass.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\service\AssignmentService.java
+C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\service\SchoolClassService.java
 C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\storage\AssignmentStorage.java
+C:\Users\sonar\Desktop\homeworktracker\src\main\java\com\example\homeworktracker\storage\SchoolClassStorage.java

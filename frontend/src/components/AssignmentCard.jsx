@@ -49,7 +49,7 @@ function AssignmentCard({
 
       <div className="assignment-actions">
         <button
-          className="assignment-btn"
+          className="card-btn"
           onClick={() =>
             assignment.completed
               ? onMarkTodo(assignment.id)
@@ -59,12 +59,12 @@ function AssignmentCard({
           {assignment.completed ? "Undo" : "Done"}
         </button>
 
-        <button className="assignment-btn" onClick={() => onEdit(assignment)}>
+        <button className="card-btn" onClick={() => onEdit(assignment)}>
           Edit
         </button>
 
         <button
-          className="assignment-btn delete-btn"
+          className="card-btn delete-btn"
           onClick={() => onDelete(assignment.id)}
         >
           Delete

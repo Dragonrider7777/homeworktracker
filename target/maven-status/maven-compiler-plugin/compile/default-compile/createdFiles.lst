@@ -1,10 +1,10 @@
 com\example\homeworktracker\model\Assignment.class
+com\example\homeworktracker\HomeworkTrackerApplication.class
 com\example\homeworktracker\service\AssignmentService.class
-com\example\homeworktracker\controller\PageController.class
+com\example\homeworktracker\service\AssignmentService$1.class
 com\example\homeworktracker\storage\AssignmentStorage.class
 com\example\homeworktracker\model\Priority.class
 com\example\homeworktracker\controller\AssignmentController.class
-com\example\homeworktracker\HomeworkTrackerApplication.class
-com\example\homeworktracker\service\AssignmentService$1.class
 com\example\homeworktracker\model\AssignmentStatus.class
 com\example\homeworktracker\storage\AssignmentStorage$1.class
+com\example\homeworktracker\controller\PageController.class

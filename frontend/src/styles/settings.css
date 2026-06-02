@@ -1,0 +1,108 @@
+.settings-card {
+  background: linear-gradient(
+    to bottom,
+    var(--color-card),
+    var(--color-card-soft)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.settings-card #list {
+  margin-top: 14px;
+}
+
+.class-card {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-left: 6px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.class-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.class-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.class-teacher {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.class-teacher::before {
+  content: "Teacher: ";
+  font-weight: 700;
+  color: var(--color-label);
+}
+
+.class-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#add-school-class {
+  background: linear-gradient(
+    to bottom,
+    var(--color-card),
+    var(--color-card-soft)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+#add-school-class label {
+  display: block;
+  margin: 12px 0 6px;
+
+  color: var(--color-label);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#add-school-class input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-card-soft);
+  color: var(--color-text);
+  font: inherit;
+}
+
+#add-school-class input:focus {
+  outline: none;
+  border-color: var(--color-primary-border);
+  box-shadow: 0 0 0 3px rgba(33, 82, 138, 0.12);
+}
