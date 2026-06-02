@@ -1,18 +1,10 @@
 [
   {
-    "id": "a5502140-b93e-4828-bc03-a974a254cc00",
-    "title": "Research Project 2-3",
-    "course": "LPP",
-    "dueDate": "2026-05-21",
-    "source": "In Class",
-    "completed": false
-  },
-  {
-    "id": "09073311-a177-42c2-8d0e-395001d7d349",
-    "title": "Portrait Photography",
-    "course": "Photography",
-    "dueDate": "2026-05-26",
-    "source": "Google Classroom",
+    "id": "daefc295-9653-46d2-8643-b723c8a1a96f",
+    "title": "test",
+    "course": "French IV",
+    "dueDate": "2026-06-03",
+    "source": "test",
     "completed": false
   }
 ]

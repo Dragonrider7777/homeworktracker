@@ -65,7 +65,7 @@ function ClassForm({
   }
 
   return (
-    <form id="add-school-class" onSubmit={handleSubmit}>
+    <form id="form-container" onSubmit={handleSubmit}>
       <div className="section-header">
         <h2>{editingSchoolClass ? "Edit Class" : "Add Class"}</h2>
         <p>

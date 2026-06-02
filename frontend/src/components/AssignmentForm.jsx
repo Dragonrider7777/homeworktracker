@@ -1,5 +1,8 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Select from "react-select";
 
 function AssignmentForm({
   onAssignmentAdded,
@@ -12,6 +15,14 @@ function AssignmentForm({
     dueDate: "",
     source: ""
   });
+  const [classes, setClasses] = useState([]);
+  const classOptions = classes.map((schoolClass) => ({
+    value: schoolClass.name,
+    label: schoolClass.name
+  }));
+
+  const selectedClass =
+    classOptions.find((option) => option.value === formData.course) || null;
 
   // Handle form submission for both adding and editing assignments
   async function handleSubmit(e) {
@@ -85,8 +96,28 @@ function AssignmentForm({
     });
   }
 
+  // Fetch classes from api to use in dropdown
+  async function loadClasses() {
+    try {
+      const res = await fetch("/api/classes");
+
+      if (!res.ok) {
+        throw new Error(`Server error ${res.status}`);
+      }
+      const data = await res.json();
+
+      setClasses(data);
+    } catch (error) {
+      console.error("Failed to load school classes:", error);
+    }
+  }
+
+  useEffect(() => {
+    loadClasses();
+  }, []);
+
   return (
-    <form id="add-assignment" onSubmit={handleSubmit}>
+    <form id="form-container" onSubmit={handleSubmit}>
       <div className="section-header">
         <h2>Add Assignment</h2>
         <p>Create a new task with an optional due date and source.</p>
@@ -100,20 +131,36 @@ function AssignmentForm({
         required
       />
       <label>Course</label>
-      <input
-        name="course"
-        value={formData.course}
-        onChange={handleInputChange}
-        placeholder="Course"
-        required
+      <Select
+        options={classOptions}
+        value={selectedClass}
+        onChange={(selectedOption) =>
+          setFormData({
+            ...formData,
+            course: selectedOption ? selectedOption.value : ""
+          })
+        }
+        placeholder="Select a class"
+        isClearable
+        isSearchable={false}
+        className="class-select"
+        classNamePrefix="class-select"
       />
       <label>Due Date</label>
-      <input
-        name="dueDate"
-        value={formData.dueDate}
-        onChange={handleInputChange}
-        placeholder="Due Date"
-        type="date"
+      <DatePicker
+        selected={formData.dueDate ? new Date(formData.dueDate) : null}
+        onChange={(date) =>
+          setFormData({
+            ...formData,
+            dueDate: date ? date.toISOString().split("T")[0] : ""
+          })
+        }
+        onKeyDown={(e) => {
+          e.preventDefault();
+        }}
+        dateFormat="MMM d, yyyy"
+        placeholderText="Select due date"
+        className="custom-datepicker"
       />
       <label>Source</label>
       <input

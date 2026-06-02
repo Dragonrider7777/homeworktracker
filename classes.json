@@ -3,5 +3,35 @@
     "id": "4918d48f-64a2-41be-9b69-2de7ad26650d",
     "name": "Photography",
     "teacherName": "Ms. Schulz"
+  },
+  {
+    "id": "bfe0c7eb-07a5-4bff-b0b2-f9f06f6cc505",
+    "name": "English",
+    "teacherName": "Mr. Griffiths"
+  },
+  {
+    "id": "ae5b18bb-6bbb-4e23-8854-3f94c8c01299",
+    "name": "PreCalculus",
+    "teacherName": "Mr. Johnson"
+  },
+  {
+    "id": "31278c81-6fa7-4706-80f2-c6fafed705fb",
+    "name": "Biology",
+    "teacherName": "Ms. Kohler"
+  },
+  {
+    "id": "6cfda962-f0d4-4e48-b86c-c77a2c0a8e81",
+    "name": "French IV",
+    "teacherName": "Mme. Duppenne"
+  },
+  {
+    "id": "1fe2146f-002b-4ce5-bd03-a7fb5ba0e1c5",
+    "name": "Gym",
+    "teacherName": "Mr. Martinson"
+  },
+  {
+    "id": "7f9a6056-e88f-4d42-9a85-3cc91621aa83",
+    "name": "Land People Power",
+    "teacherName": "Mr. Jorgensen"
   }
 ]

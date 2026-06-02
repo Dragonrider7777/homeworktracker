@@ -1,4 +1,5 @@
 import { StrictMode } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import ToastProvider from "./components/ToastProvider.jsx";
