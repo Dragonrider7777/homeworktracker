@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaTrash } from "react-icons/fa";
-import ClassCard from "../components/ClassCard";
-import ClassForm from "../components/ClassForm";
+import ClassCard from "../components/classes/ClassCard";
+import ClassForm from "../components/classes/ClassForm";
 
 function SettingsPage() {
   const [schoolClasses, setSchoolClasses] = useState([]);

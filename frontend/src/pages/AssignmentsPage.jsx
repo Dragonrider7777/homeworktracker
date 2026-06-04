@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaCheck, FaTrash, FaUndo } from "react-icons/fa";
-import AssignmentCard from "../components/AssignmentCard";
-import AssignmentForm from "../components/AssignmentForm";
-import EmptyState from "../components/EmptyState";
-import FilterBar from "../components/FilterBar";
+import AssignmentCard from "../components/assignments/AssignmentCard";
+import AssignmentForm from "../components/assignments/AssignmentForm";
+import FilterBar from "../components/assignments/FilterBar";
+import EmptyState from "../components/shared/EmptyState";
 
 function AssignmentsPage() {
   const [assignments, setAssignments] = useState([]);

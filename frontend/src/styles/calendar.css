@@ -46,3 +46,166 @@
   background: var(--color-primary-soft) !important;
   border-radius: 50% !important;
 }
+
+.calendar-card {
+  background: linear-gradient(
+    to bottom,
+    var(--color-card),
+    var(--color-card-soft)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.calendar-title {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-muted);
+  padding: 8px 0;
+}
+
+.calendar-day {
+  min-height: 95px;
+  min-width: 0;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.calendar-day.empty {
+  opacity: 0.35;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.calendar-day.today {
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.calendar-day-number {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.calendar-day.today .calendar-day-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  background: var(--color-primary);
+  color: white;
+
+  border-radius: 50%;
+}
+
+.calendar-assignment {
+  font-size: 12px;
+  padding: 5px 7px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 5px;
+  font-weight: 700;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.calendar-assignment.overdue {
+  background: var(--badge-overdue-bg);
+  color: var(--badge-overdue-text);
+}
+
+.calendar-assignment.due-soon {
+  background: var(--badge-due-soon-bg);
+  color: var(--badge-due-soon-text);
+}
+
+.calendar-assignment.upcoming {
+  background: var(--badge-upcoming-bg);
+  color: var(--badge-upcoming-text);
+}
+
+.calendar-assignment.completed {
+  background: var(--badge-completed-bg);
+  color: var(--badge-completed-text);
+  text-decoration: line-through;
+}
+
+.day-view-card {
+  background: linear-gradient(
+    to bottom,
+    var(--color-card),
+    var(--color-card-soft)
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.day-assignment {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-left: 6px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.day-assignment.overdue {
+  border-left-color: var(--color-overdue);
+}
+
+.day-assignment.due-soon {
+  border-left-color: var(--color-due-soon);
+}
+
+.day-assignment.upcoming {
+  border-left-color: var(--color-upcoming);
+}
+
+.day-assignment.completed {
+  border-left-color: var(--color-completed);
+  opacity: 0.75;
+}
+
+.empty-day-text {
+  color: var(--color-muted);
+  font-weight: 700;
+}

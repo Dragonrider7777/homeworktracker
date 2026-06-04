@@ -7,7 +7,9 @@ function FilterBar({ currentFilter, setCurrentFilter }) {
         <button
           key={filter}
           className={
-            currentFilter === filter ? "active-filter filter-btn" : "filter-btn"
+            currentFilter === filter
+              ? "active-filter default-btn"
+              : "default-btn"
           }
           onClick={() => setCurrentFilter(filter)}
         >
